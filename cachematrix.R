@@ -37,13 +37,13 @@ makeCacheMatrix <- function(x = matrix()) {
 # message with "getting cached data" is posted.
 
 
-cacheSolve <- function(x) {
+cacheSolve <- function(x, ...) {
   y <- x$getInv()
   if(!is.null(y)) {
     message("getting cached data")
     return(y)
   }
-  x$setInv(solve(x$get()))
+  x$setInv(solve(x$get(),...))
   y <- x$getInv()
   y
 }
